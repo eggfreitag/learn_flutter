@@ -14,19 +14,33 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("My App"),
           centerTitle: false,
+          leading: Icon(Icons.menu),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () => print("검색"),
+            ),
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () => print("홈"),
+            ),
+          ],
         ),
-        body: Align(
-          alignment: Alignment.centerLeft,
-          child: Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.all(20),
-            padding: EdgeInsets.fromLTRB(20, 10, 0, 20),
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 1)),
-            child: Text("Hello World"),
-          ),
+        // body: TextButton(
+        //   child: Text("하이"),
+        //   onPressed: () => print("하이"),
+        // ),
+        body: ElevatedButton(
+          onPressed: () => print("하이"),
+          style: ButtonStyle(
+              alignment: Alignment.bottomCenter,
+              backgroundColor: MaterialStateProperty.all(Colors.red)),
+          child: Text("하이"),
         ),
+        // body: IconButton(
+        //   icon: Icon(Icons.home),
+        //   onPressed: () => print("하이"),
+        // ),
       ),
     );
   }
